@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #cart {
+        width: 96%;
+        padding-left: 2%;
+        padding-right: 2%;
+        display: flex;
+      }
+      #leftcart {
+        flex: 7;
+        height: 96%;
+        margin: 1%;
+        padding: 20px;
+        padding-top: 0%;
+        box-shadow: rgba(26, 28, 29, 0.3) 0px 1px 2px 0px,
+          rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+      }
+      #rightcart {
+        flex: 3;
+        height: 96%;
+        margin: 1%;
+        padding: 10px;
+        box-shadow: rgba(37, 38, 39, 0.3) 0px 1px 2px 0px,
+          rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+        /* border: 1px solid red; */
+      }
+      #cartlength {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        font-size: x-large;
+        font-weight: 510;
+        border-bottom: 2px solid rgb(202, 195, 195);
+      }
+      #box1 {
+        display: flex;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        height: 200px;
+        border-bottom: 2px solid rgb(212, 201, 201);
+      }
+      #box11 {
+        width: 25%;
+        padding: 10px;
+        margin: 1%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      #box11 > img {
+        width: 65%;
+        margin-left: 17%;
+        margin-bottom: 5px;
+        border: 1px solid rgb(221, 208, 208);
+      }
+      #box12 {
+        width: 74%;
+        padding: 10px;
+        margin: 1%;
+      }
+      #cartline1 {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+      }
+      #cartline1 > div {
+        margin-right: 20px;
+      }
+      #cartline2 {
+        display: flex;
+        margin-top: 10px;
+      }
+      #cartline2 > div {
+        margin-right: 30px;
+        font-size: 22px;
+        font-family: 530;
+      }
+      #cartline2 > div:hover {
+        color: #047bd5;
+      }
+      #cartline {
+        display: flex;
+        margin-top: 10px;
+        justify-content: space-between;
+      }
+      #cartline > div {
+        color: gray;
+        font-size: 15px;
+      }
+      #productName {
+        font-size: 20px;
+        font-weight: 510;
+      }
+      #price {
+        font-size: 22px;
+        font-weight: 520;
+      }
+      #price2 {
+        font-size: 18px;
+        color: gray;
+        text-decoration: line-through;
+      }
+      #price3 {
+        color: green;
+        font-size: 18px;
+        font-weight: 520;
+      }
+      #flipass {
+        width: 110px;
+        margin-top: 10px;
+      }
+      #divinp {
+        display: flex;
+        justify-content: center;
+        /* margin-top: 10px; */
+      }
+      #divinp > input {
+        width: 30px;
+        margin: 5px;
+        border: 1px solid rgb(202, 195, 195);
+        text-align: center;
+      }
+      #divinp > button {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin: 5px;
+        border: 1px solid rgb(207, 200, 200);
+        font-size: 20px;
+      }
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
+      #rightcart1 {
+        width: 100%;
+        height: 50px;
+        /* border: 1px solid green; */
+        border-bottom: 2px solid rgb(212, 205, 205);
+        color: gray;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+      }
+      #rightcart2,
+      #rightcart3,
+      #rightcart4,
+      #rightcart5 {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-size: 18px;
+      }
+      #rightcart4 {
+        padding-bottom: 20px;
+        border-bottom: 2px solid rgb(219, 208, 208);
+      }
+      #rightcart5 {
+        font-size: 22px;
+        font-weight: 530;
+        border-bottom: 2px solid rgb(214, 206, 206);
+        padding-bottom: 20px;
+      }
+      #rightcart6 {
+        font-size: 20px;
+        padding-bottom: 10px;
+        padding-left: 15px;
+        color: green;
+      }
+      #cartcontentbottom {
+        width: 100%;
+        height: 70px;
+        /* border: 1px solid green; */
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
+      #cartcontentbottom > button {
+        background-color: #fb641b;
+        width: 200px;
+        height: 50px;
+        border: 0;
+        border-radius: 5px;
+        color: white;
+        margin-right: 20px;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="cart">
+      <div id="leftcart">
+        <div id="cartlength">My Cart (<span id="cartl1"></span>)</div>
+        <div id="cartcontent"></div>
+        <div id="cartcontentbottom">
+          <button onclick="tocheckout()">Place Order</button>
+        </div>
+      </div>
+      <div id="rightcart">
+        <div id="rightcart1">PRICE DETAILS</div>
+
+        <div id="rightcart2">
+          <div>Price</div>
+          <div id="a1"></div>
+        </div>
+
+        <div id="rightcart3">
+          <div>Discount</div>
+          <div id="a2" style="color: rgb(15, 116, 15); font-size: 20px"></div>
+        </div>
+
+        <div id="rightcart4">
+          <div>delivery Charges</div>
+          <div id="a3" style="color: rgb(14, 138, 14); font-size: 20px">
+            Free
+          </div>
+        </div>
+
+        <div id="rightcart5">
+          <div>Total Amount</div>
+          <div id="a4"></div>
+        </div>
+
+        <div id="rightcart6">
+          You will save ₹<span id="a6"></span> on this order
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  var data = [
+    {
+      current_price: 850,
+      discounted: true,
+      link: "https://www.flipkart.com/slim-fit-women-black-trousers/p/itmf8z5yhbu7jz2e",
+      name: "AND Slim Fit Women Black Trousers",
+      original_price: 1899,
+      query_url:
+        "https://flipkart.dvishal485.workers.dev/product/slim-fit-women-black-trousers/p/itmf8z5yhbu7jz2e",
+      thumbnail:
+        "https://rukminim1.flixcart.com/image/612/612/kflftzk0-0/trouser/p/6/3/30-coay03tr53lr-and-original-imafwyf6vwtkv2fz.jpeg?q=70",
+    },
+    {
+      current_price: 850,
+      discounted: true,
+      link: "https://www.flipkart.com/slim-fit-women-black-trousers/p/itmf8z5yhbu7jz2e",
+      name: "AND Slim Fit Women Black Trousers",
+      original_price: 1899,
+      query_url:
+        "https://flipkart.dvishal485.workers.dev/product/slim-fit-women-black-trousers/p/itmf8z5yhbu7jz2e",
+      thumbnail:
+        "https://rukminim1.flixcart.com/image/612/612/kflftzk0-0/trouser/p/6/3/30-coay03tr53lr-and-original-imafwyf6vwtkv2fz.jpeg?q=70",
+    },
+    {
+      current_price: 850,
+      discounted: true,
+      link: "https://www.flipkart.com/slim-fit-women-black-trousers/p/itmf8z5yhbu7jz2e",
+      name: "AND Slim Fit Women Black Trousers",
+      original_price: 1899,
+      query_url:
+        "https://flipkart.dvishal485.workers.dev/product/slim-fit-women-black-trousers/p/itmf8z5yhbu7jz2e",
+      thumbnail:
+        "https://rukminim1.flixcart.com/image/612/612/kflftzk0-0/trouser/p/6/3/30-coay03tr53lr-and-original-imafwyf6vwtkv2fz.jpeg?q=70",
+    },
+  ];
+
+  localStorage.setItem("cart", JSON.stringify(data));
+  var res = JSON.parse(localStorage.getItem("cart"));
+
+  let a1 = 0;
+  let a2 = 0;
+  let a3 = 0;
+  let a4 = 0;
+  displaydata();
+  a2 = a1 - a4;
+  displayvalue()
+function displayvalue(){
+
+
+  document.querySelector("#a1").innerHTML = "₹"+a1;
+  document.querySelector("#a2").textContent ="-"+"₹"+a2;
+  document.querySelector("#a6").textContent = a2;
+  document.querySelector("#a4").textContent = "₹"+a4;
+}
+
+  function displaydata() {
+    var res = JSON.parse(localStorage.getItem("cart"));
+    document.querySelector("#cartcontent").innerHTML = null;
+    console.log(res);
+    document.querySelector("#cartl1").textContent = res.length;
+    res.map(function (data, hn) {
+      var div = document.createElement("div");
+      div.id = "box1";
+
+      var imgdiv = document.createElement("div");
+      imgdiv.id = "box11";
+
+      var image = document.createElement("img");
+      image.setAttribute("src", data.thumbnail);
+
+      var divinp = document.createElement("div");
+      divinp.id = "divinp";
+
+      var inp1 = document.createElement("input");
+      inp1.id = "inp";
+      inp1.type = "Number";
+      inp1.min = 1;
+      inp1.defaultValue = 1;
+      // inp1.addEventListener("change",function(){
+      //   var a=inp1.value
+      //   console.log(a)
+      // })
+
+      var but1 = document.createElement("button");
+      but1.addEventListener("click", minusinp);
+      but1.id = "but1";
+      but1.textContent = "-";
+
+      var but2 = document.createElement("button");
+      but2.addEventListener("click", plusinp);
+      but2.id = "but2";
+      but2.textContent = "+";
+
+      divinp.append(but1, inp1, but2);
+
+      var textdiv = document.createElement("div");
+      textdiv.id = "box12";
+
+      var productName = document.createElement("div");
+      productName.id = "productName";
+      productName.textContent = data.name.substring(4);
+
+      var cartline = document.createElement("div");
+      cartline.id = "cartline";
+
+      var seller = document.createElement("div");
+      seller.textContent = "FlipKart";
+
+      var replacee = document.createElement("div");
+      replacee.textContent = "7 Days Replacement Policy";
+
+      var cartline1 = document.createElement("div");
+      cartline1.id = "cartline1";
+
+      let a = +data.current_price;
+      let b = +data.original_price;
+
+
+      let c = Math.floor(((b - a) / b) * 100);
+
+      a4 = a4 + a;
+
+      var price = document.createElement("div");
+      price.id = "price";
+      price.textContent = "₹" + data.current_price;
+
+      a1 = a1 + b;
+      var price2 = document.createElement("div");
+      price2.id = "price2";
+      price2.textContent = "₹" + data.original_price;
+
+      var price3 = document.createElement("div");
+      price3.id = "price3";
+      price3.textContent = c + " %" + "    off";
+
+      var assuer = document.createElement("img");
+      assuer.src = "https://www.adgully.com/img/800/68264_fl.png.jpg";
+      assuer.id = "flipass";
+
+      var cartline2 = document.createElement("div");
+      cartline2.setAttribute("id", "cartline2");
+
+      var save = document.createElement("div");
+      save.textContent = "save for later";
+      save.addEventListener("click", function (event) {
+        addtocart(hn);
+      });
+
+      var remove = document.createElement("div");
+      remove.textContent = "Remove";
+      remove.addEventListener("click", function (event) {
+        deletefromcart(hn);
+      });
+      displayvalue()
+
+      cartline.append(seller, replacee);
+      cartline1.append(price, price2, price3);
+      cartline2.append(save, remove);
+      imgdiv.append(image, divinp);
+      textdiv.append(productName, cartline, cartline1, assuer, cartline2);
+      div.append(imgdiv, textdiv);
+      document.querySelector("#cartcontent").append(div);
+    });
+  }
+  function deletefromcart(hn) {
+    res.splice(hn, 1);
+    localStorage.setItem("cart", JSON.stringify(res));
+    alert("Item Removed From Cart");
+    a1=0;
+    a2=0;
+    a3=0;
+    a4=0;
+    displaydata();
+    a2 = a1 - a4;
+    displayvalue()
+  }
+  function addtocart(hn) {
+    res.splice(hn, 1);
+    localStorage.setItem("cart", JSON.stringify(res));
+    alert("Item Added to Wishlist");
+    displaydata();
+  }
+  function minusinp() {
+    var a = document.querySelector("#inp").value;
+    var b = +a - 1;
+    if (b <= 0) {
+      b = 1;
+    }
+    document.querySelector("#inp").value = b;
+  }
+  function plusinp() {
+    var a = document.querySelector("#inp").value;
+    var b = +a + 1;
+    document.querySelector("#inp").value = b;
+  }
+
+  function tocheckout(){
+    localStorage.setItem("price",JSON.stringify(a4))
+    window.location.href="checkout.html"
+  }
+</script>
