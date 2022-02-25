@@ -325,10 +325,62 @@
       #i5::placeholder{
         font-size: 14px;
       }
+      /* -------------navbar----------------- */
+      
+  #navbar {
+    height: 56px;
+    width: 100%;
+    background-color: #2874f0;
+    display: flex;
+    /* position: fixed; */
+  }
+
+  #flipkart-logo {
+    height: 100%;
+    width: 137px;
+    margin-left: 148px;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+  }
+  #flipkart-logo > img {
+    height: 20.11px;
+    width: 75px;
+    margin-top: 10px;
+    margin-left: 3.8rem;
+  }
+  #flipkart-logo > a {
+    text-align: end;
+    font-size: 11px;
+    font-style: italic;
+    text-decoration: none;
+  }
+  #flipkart-logo > a {
+    color: white;
+  }
+  #flipkart-logo > a > span {
+    color: #ffe500;
+  }
      
     </style>
   </head>
   <body>
+    <nav id="navbar">
+      <div id="flipkart-logo">
+          <img
+            src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/flipkart-plus_8d85f4.png"
+            alt=""
+          />
+          <a href=""
+            >Explore <span>Plus</span>
+            <img
+              src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/plus_aef861.png"
+              alt=""
+              width="10px"
+            />
+          </a>
+        </div>
+  </nav>
     <div id="cart">
       <div id="leftcart">
 
