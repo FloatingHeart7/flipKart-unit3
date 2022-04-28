@@ -77,11 +77,6 @@ You can also take a glimpse of our Project, just follow the below steps:
 
 <br>
 
-## Check out Blog
-
-[Flipkart Clone](https://medium.com/@salmankhan231999/flipkart-clone-e838ce66850)
-
-<br>
 
 ## Demo
 
